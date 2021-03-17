@@ -14,10 +14,8 @@ app.set('views', __dirname + '/views');
 
 app.get("/", async (req,res,next)=>{
   try {
-    
-    
-    let dica = (await axios.get(`http://${HELPY}:8000`)).data
-    res.render( 'index', {line: dica})
+    let temperatura = (await axios.get(`http://${HELPY}:8000`)).data
+    res.render( 'index', {line: temperatura})
     // res.sendFile(path.join(__dirname + '/index.html'));
   } catch (error) {
    console.error(error) 
